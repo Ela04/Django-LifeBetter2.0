@@ -1,0 +1,9 @@
+Performing system checks...
+
+paso por urls de instituto
+System check identified no issues (0 silenced).
+September 05, 2023 - 22:15:20
+Django version 4.2.1, using settings 'instituto.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+

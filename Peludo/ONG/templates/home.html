@@ -1,0 +1,62 @@
+{% extends "./base.html" %}
+
+{% block title %} Pagina Principal {% endblock %}
+
+{% block body %}
+{% load static %}
+
+<!-- CARRUSEL-->
+<!--=============================== -->
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static '/img/Carrusel_1.png' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static '/img/slide_2.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static '/img/slide_3.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static '/img/slide_4.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static '/img/slide_5.png' %}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next"  data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>       
+</div>
+
+<!-- INTRODUCCION DE SERVICIOS-->
+<!--=============================== -->
+<section class="d-flex flex-column justify-content-center align-items-center pt-5  text-center w-40 m-auto" id="intro">
+      <h2>Asesoría para todos los requerimientos en <span class="text-primary">Apoyo de Mascotas<span/></h2>
+      <p class="p-2  fs-4">
+        <span class="text-primary">ExpertD.</span>
+        Fundación Ayuda a un Peludo es una organización sin fines de lucro que nace el año 2023 con el propósito de dar solución a la problemática de Bienestar Animal y Tenencia Responsable de Mascotas y Animales de Compañía en Chile.        
+      </p>
+</section>
+
+
+<!-- MASCOTAS-->
+<!--======================= -->
+<section class="w-100">
+  <div class="row w-75 mx-auto" id="servicios-fila-1">
+    <div class="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-start my-5 icono-wrap">
+      <img src="{% static 'img/perro.jpg' %}" alt="" class="img-fluid">
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-start  my-5 icono-wrap">
+      <img src="{% static 'img/gato.jpg' %}" alt="" class="img-fluid">
+    </div>   
+   </div>
+  </section>
+
+{% endblock %}
