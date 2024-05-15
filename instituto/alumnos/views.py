@@ -7,6 +7,15 @@ from django.contrib.auth import logout
 from .forms import CursosForm
 
 # Create your views here.
+#creación pagina conserje#
+def conserje(request):
+    return render(request, 'conserje/conserje.html')
+#creación pagina visitas#  
+def visitas(request):
+    return render(request, 'conserje/visitas.html')
+#creación pagina bitacoras#
+def bitacoras(request):
+    return render(request, 'conserje/bitacoras.html')
 
 #def base(request):
 #    return render(request, 'alumnos/base.html')
