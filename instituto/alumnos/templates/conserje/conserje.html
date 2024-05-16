@@ -2,24 +2,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>Conserje</title>
+
 </head>
 <body>
     <h1>Página del Conserje</h1>
     <p>Contenido de la página del conserje.</p>
 
     <div>
-        <a href="{% url 'bitacoras' %}"></a>
-        <button  >Ir a Bitácoras</button>
+        <a href="{% url 'bitacoras' %}">
+        <button>Ir a Bitácoras</button>
     </div>
     <div>
-        <a href="{% url 'visitas' %}"></a>
-        <button >Ir a Visitas</button>
+        <a href="{% url 'visitas' %}">
+        <button>Ir a Visitas</button>
     </div>
     <div>
-        <a href=""></a>
-        <button >Ir a Encomiendas</button>
+        <a href="{% url 'encomiendas' %}">
+        <button>Ir a Encomiendas</button>
     </div>
 
-    
+    <div>
+        <a href="{% url 'home' %}">
+        <button>Cerrar Sesión</button>
+    </div>
+
 </html>

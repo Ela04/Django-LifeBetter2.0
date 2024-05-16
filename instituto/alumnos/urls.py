@@ -8,13 +8,15 @@ from django.contrib import admin
 
 urlpatterns = [
    #path('base', views.base, name='base'),
-   path('', views.home, name='home'),
+   path('home', views.home, name='home'),
    path('nosotros', views.nosotros, name='nosotros'),
    path('contacto', views.contacto, name='contacto'),
    path('cursos', views.cursos, name='cursos'),
    path('conserje/', views.conserje, name='conserje'),
    path('visitas/', views.visitas, name='visitas'),
    path('bitacoras/', views.bitacoras, name='bitacoras'),
+   path('encomiendas/', views.encomiendas, name='encomiendas'),
+   
    
    # CRUD
    path('gestioncur', views.gestioncur, name='gestioncur'),

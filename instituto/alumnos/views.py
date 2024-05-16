@@ -16,20 +16,23 @@ def visitas(request):
 #creación pagina bitacoras#
 def bitacoras(request):
     return render(request, 'conserje/bitacoras.html')
+#creación pagina encomiendas
+def encomiendas(request):
+    return render(request, 'conserje/encomiendas.html')
 
 #def base(request):
 #    return render(request, 'alumnos/base.html')
 
 def home(request):
-    return render(request, 'alumnos/home.html')
+    return render(request, 'publico/home.html')
 def nosotros(request):
-    return render(request, 'alumnos/nosotros.html')
+    return render(request, 'publico/nosotros.html')
 def contacto(request):
-    return render(request, 'alumnos/contacto.html')
+    return render(request, 'publico/contacto.html')
 def cursos(request):
     cursos = Cursos.objects.all()
     context={"cursos":cursos}
-    return render(request, 'alumnos/cursos.html', context)
+    return render(request, 'publico/cursos.html', context)
 
 
 ## GESTION DE CURSOS
@@ -37,7 +40,7 @@ def cursos(request):
 def gestioncur(request):
     cursos = Cursos.objects.all()
     context={"cursos":cursos}
-    return render(request, 'alumnos/gestion/gestioncur.html', context)
+    return render(request, 'publico/gestion/gestioncur.html', context)
 
 
 # CRUD
@@ -47,7 +50,7 @@ def nuevocur(request):
     if formulario.is_valid():
        formulario.save()
        return redirect('gestioncur')
-    return render(request, "alumnos/gestion/nuevocurso.html", {"formulario": formulario})
+    return render(request, "publico/gestion/nuevocurso.html", {"formulario": formulario})
 
 def editarcur(request, codigo):
     cursos = Cursos.objects.get(codigo=codigo)
@@ -55,7 +58,7 @@ def editarcur(request, codigo):
     if formulario.is_valid() and request.POST:
        formulario.save()
        return redirect('gestioncur')
-    return render(request, "alumnos/gestion/editarcurso.html", {"formulario": formulario})
+    return render(request, "publico/gestion/editarcurso.html", {"formulario": formulario})
 
 def borrarcurso(request, codigo):
     cursos = Cursos.objects.get(codigo=codigo)
@@ -67,7 +70,7 @@ def borrarcurso(request, codigo):
 
 #GESTION USUARIOS
 def login(request):
-    return render(request, "alumnos/login.html")
+    return render(request, "publico/login.html")
 
 def salir(request):
     logout(request)
