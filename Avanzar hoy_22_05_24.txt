@@ -1,0 +1,12 @@
+-Cambiar index por nombre de carpeta, eje: admin.html
+-Crear vista de conserje
+------------------------------------------------------
+conserje:
+co12345678
+
+*Permisos*
+
+-CRUD bitacora
+-CRUD Visitas y vehiculos
+-Agrega encomienda, cambia estado de encomienda
+-Agrega multa(con detalles)
