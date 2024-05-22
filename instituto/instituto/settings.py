@@ -13,119 +13,111 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Construir rutas dentro del proyecto como esta: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Configuración de inicio rápido para desarrollo - no apto para producción
+# Ver https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# ADVERTENCIA DE SEGURIDAD: mantén la clave secreta usada en producción en secreto!
 SECRET_KEY = 'django-insecure-^j2o0opwo_&(mg#um9l()q5gify$$x2(&$7**_-e9a2%z&_drj'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# ADVERTENCIA DE SEGURIDAD: no ejecutes con debug activado en producción!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []  # Lista de hosts/URLs permitidos para este sitio
 
-
-# Application definition
+# Definición de aplicaciones
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'alumnos',
+    'django.contrib.admin',  # Administrador de Django
+    'django.contrib.auth',  # Autenticación
+    'django.contrib.contenttypes',  # Tipos de contenido
+    'django.contrib.sessions',  # Sesiones
+    'django.contrib.messages',  # Mensajes
+    'django.contrib.staticfiles',  # Archivos estáticos
+    'alumnos',  # Aplicación 'alumnos'
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',  # Seguridad
+    'django.contrib.sessions.middleware.SessionMiddleware',  # Sesiones
+    'django.middleware.common.CommonMiddleware',  # Middleware común
+    'django.middleware.csrf.CsrfViewMiddleware',  # Protección CSRF
+    'django.contrib.auth.middleware.AuthenticationMiddleware',  # Autenticación
+    'django.contrib.messages.middleware.MessageMiddleware',  # Mensajes
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',  # Protección clickjacking
 ]
 
-ROOT_URLCONF = 'instituto.urls'
+ROOT_URLCONF = 'instituto.urls'  # Configuración de URL principal
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',  # Backend de plantillas
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),  # Directorio de plantillas
+        ],
+        'APP_DIRS': True,  # Busca plantillas en las aplicaciones instaladas
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.debug',  # Procesador de contexto de depuración
+                'django.template.context_processors.request',  # Procesador de contexto de solicitud
+                'django.contrib.auth.context_processors.auth',  # Procesador de contexto de autenticación
+                'django.contrib.messages.context_processors.messages',  # Procesador de contexto de mensajes
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'instituto.wsgi.application'
+WSGI_APPLICATION = 'instituto.wsgi.application'  # Configuración WSGI
 
-
-# Database
+# Base de datos
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',  # Backend de base de datos SQLite
+        'NAME': BASE_DIR / 'db.sqlite3',  # Nombre de la base de datos
     }
 }
 
-
-# Password validation
+# Validación de contraseñas
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',  # Validador de similitud de atributos de usuario
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',  # Validador de longitud mínima
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',  # Validador de contraseñas comunes
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',  # Validador de contraseñas numéricas
     },
 ]
 
-
-# Internationalization
+# Internacionalización
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'es-es'
+LANGUAGE_CODE = 'es-es'  # Código de idioma
 
-TIME_ZONE = 'America/Santiago'
+TIME_ZONE = 'America/Santiago'  # Zona horaria
 
-USE_I18N = True
+USE_I18N = True  # Uso de internacionalización
 
-USE_TZ = True
+USE_TZ = True  # Uso de zonas horarias
 
-
-# Static files (CSS, JavaScript, Images)
+# Archivos estáticos (CSS, JavaScript, Imágenes)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-MEDIA_URL = '/media/'
+STATIC_URL = '/static/'  # URL para archivos estáticos
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Directorio raíz para archivos de medios
+MEDIA_URL = '/media/'  # URL para archivos de medios
 
-
-# Default primary key field type
+# Tipo de campo de clave primaria predeterminado
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-LOGIN_REDIRECT_URL = "/"
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'  # Tipo de campo de clave primaria predeterminado

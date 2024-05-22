@@ -1,39 +1,38 @@
-{% extends "../alumnos/base.html" %}
-{% block title %} PG | Login {% endblock %}
+{% extends "../alumnos/base.html" %} <!-- Extiende la plantilla base ubicada en el directorio 'alumnos' -->
+{% block title %} PG | Login {% endblock %} <!-- Define el bloque 'title' con el contenido 'PG | Login' -->
 
 {% block body %}
 
-    <div class="row">
-        <div class="col-lg-4 offset-lg-4 ">
-            <h2 class="fw-bold text-center py-5">Bienvenido</h2>
-            <!-- LOGIN -->
+    <div class="row"> <!-- Contenedor de fila para organizar el contenido -->
+        <div class="col-lg-4 offset-lg-4"> <!-- Contenedor centrado de tamaño mediano -->
+            <h2 class="fw-bold text-center py-5">Bienvenido</h2> <!-- Encabezado de bienvenida con estilo negrita y centrado -->
+
+            <!-- Formulario de inicio de sesión -->
             <form method="post">
-            {% csrf_token %}
-                <div class="form-group mb-1">
-                    <label for="usuario" class="form-label">Nombre Usuario</label>
-                    <input type="text" class="form-control" name="username">
+                {% csrf_token %} <!-- Token CSRF para proteger contra ataques CSRF -->
+                <div class="form-group mb-1"> <!-- Grupo de formulario con margen inferior -->
+                    <label for="usuario" class="form-label">Nombre Usuario</label> <!-- Etiqueta para el campo de usuario -->
+                    <input type="text" class="form-control" name="username"> <!-- Campo de entrada para el nombre de usuario -->
                 </div>
 
-                <div class="form-group mb-2">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" name="password">
-
+                <div class="form-group mb-2"> <!-- Grupo de formulario con margen inferior -->
+                    <label for="password" class="form-label">Contraseña</label> <!-- Etiqueta para el campo de contraseña -->
+                    <input type="password" class="form-control" name="password"> <!-- Campo de entrada para la contraseña -->
                 </div>
 
-                <div class="form-group d-grid mb-2">
-                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                <div class="form-group d-grid mb-2"> <!-- Grupo de formulario con estilo de cuadrícula y margen inferior -->
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button> <!-- Botón para enviar el formulario -->
                 </div>
-
             </form>
-            <div class="help-block">
+
+            <div class="help-block"> <!-- Bloque de ayuda para el enlace de recuperación de contraseña -->
                 Olvido Contraseña? <a href="#">Clic Aquí</a>
             </div>
 
-            <div class="help-block">
-            No Tiene Cuenta? <a href="#">Registrar</a>
+            <div class="help-block"> <!-- Bloque de ayuda para el enlace de registro -->
+                No Tiene Cuenta? <a href="#">Registrar</a>
             </div>
         </div>
     </div>
 
-{% endblock %} 
-
+{% endblock %} <!-- Cierra el bloque 'body' -->
