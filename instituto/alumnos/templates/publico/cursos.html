@@ -1,37 +1,40 @@
-{% extends "./base.html" %} <!-- Extiende la plantilla base ubicada en el mismo directorio -->
-{% load static %} <!-- Carga la biblioteca de etiquetas estáticas de Django -->
-{% block title %} PG | CURSOS {% endblock %} <!-- Define el bloque 'title' con el contenido 'PG | CURSOS' -->
+{% extends "./base.html" %} <!-- Correctly extending the base template -->
+{% load static %} <!-- Load static files -->
+{% block title %} Pagina Cursos {% endblock %} <!-- Define the title block -->
 
 {% block body %}
     <div>
-        <h1>CURSOS</h1> <!-- Encabezado principal de la página -->
+        <h1>CURSOS</h1> <!-- Main heading -->
     </div>
     <div class="p-2">
-      <a href="{% url 'gestioncur'%}" class="btn btn-primary">Gestion Cursos</a> <!-- Enlace para gestionar cursos -->
+        <a href="{% url 'gestioncur' %}" class="btn btn-primary">Gestion Cursos</a> <!-- Correct URL for managing courses -->
     </div>
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <!-- Itera sobre los cursos obtenidos de la base de datos -->
+        <!-- Iterate over the courses from the database -->
         {% for cur in cursos %}
         <div class="col">
-          <div class="card shadow-sm"> <!-- Tarjeta con sombra -->
-            <!--<img src="{{cur.img.url}}" alt=""> Imagen del curso -->
-            <div class="card-body">
-              <div class="card-text">
-                <p>{{cur.nombre}} <br>
-                  sence		: {{cur.sence}} <br>
-                  Area		: {{cur.id_Area}} <br>
-                  Modalidad	: {{cur.modalidad}}
-                </p> <!-- Detalles del curso -->
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a href="#" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Mas Información..</a> <!-- Botón para más información -->
+            <div class="card shadow-sm"> <!-- Card with shadow -->
+                {% if cur.img %}
+                <img src="{{ cur.img.url }}" alt="" class="card-img-top"> <!-- Course image -->
+                {% endif %}
+                <div class="card-body">
+                    <div class="card-text">
+                        <p>{{ cur.nombre }} <br>
+                            SENCE: {{ cur.sence }} <br>
+                            Area: {{ cur.id_Area.Descripcion }} <br>
+                            Modalidad: {{ cur.modalidad }} <br>
+                            Fecha: {{ cur.fecha_creacion }} <br>
+                        </p> <!-- Course details -->
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Más Información..</a> <!-- More information button -->
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
         {% endfor %}
     </div>
-{% endblock %} <!-- Cierra el bloque 'body' -->
+{% endblock %} <!-- Close the body block -->

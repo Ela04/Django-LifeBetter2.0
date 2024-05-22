@@ -20,6 +20,7 @@ class Alumno(models.Model):
     email            = models.EmailField(unique=True, max_length=100, blank=True, null=True)  # Campo de email único
     direccion        = models.CharField(max_length=50, blank=True, null=True)  # Campo de texto para la dirección
     activo           = models.IntegerField()  # Campo entero para indicar si el alumno está activo
+    Cursos           = models.IntegerField( ) #
 
     def __str__(self):
         return str(self.nombre) + " " + str(self.apellido_paterno)  # Representación en cadena del modelo 'Alumno'
@@ -46,10 +47,12 @@ class ModalCursos(models.Model):
 
 
 class Cursos(models.Model):
+    id_curso = models.AutoField(primary_key=True)  # Automatically creates a column with auto-incremented values
+    codigo = models.CharField(max_length=6, unique=True)
     nombre = models.CharField(max_length=50)
     sence = models.CharField(max_length=10)
     fecha_creacion = models.DateField(blank=False, null=False)
-    id_Area = models.ForeignKey('AreaCursos', on_delete=models.CASCADE, db_column='id_Area') 
+    id_Area = models.ForeignKey('AreaCursos', on_delete=models.CASCADE, db_column='idArea')
     modalidad = models.CharField(max_length=30, blank=True, null=True)
     objetivo = models.CharField(max_length=200, blank=True, null=True)
     horas = models.IntegerField()
@@ -57,7 +60,7 @@ class Cursos(models.Model):
     img = models.ImageField(upload_to='img/', null=True, blank=True)
 
     def __str__(self):
-        return str(self.nombre)  # Representación en cadena del modelo 'Cursos'
+        return str(self.nombre)
 
     class Meta:
-        ordering = ['nombre']  # Ordena por 'nombre' de forma predeterminada
+        ordering = ['nombre']
